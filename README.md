@@ -45,3 +45,28 @@ At this point, Redux action creators and reducers are finished. Rest of the deve
 
    - then wrap App tag in `<Provider > </Provider>` tags
    - pass Provider a reference to the result of passing reducers to createStore function, ie `<Provider store={createStor(reducers)} >`
+
+5. Create MovieList component and hook it up to the App
+
+   To get our list of movies into MovieList, create an instance of 'connect' component and pass it some config that gets it to reach back up to the Provider and get it to return list of movies.
+
+   ie, connect is a react component that we pass config to: we tell it we want to get a list of movies out of our Redux store from the Provider.
+
+   Any time data in the store changes, it tells the Provider which notifies the connect function which then passes the data to the MovieList component.
+
+   Connect component is going to be written inside the MovieList.js file because only it needs to create the connect function to reach up to Provider.
+
+   **Configuring connect**
+
+   To configure connect component to tell it we want specific data from redux store: define a function called mapStateToProps(). It takes in our state object (in Redux store) and make it appear as props inside our component. The state passed into this function contains both the movies list and the selectedMovie. T
+
+   he MovieList only cares about the list of movies, not the selected movie, mapStateToProps returns an object that only returns the list: `return { movies: state.movies };` with movies being the key.
+
+   So now, this.props is going to contain this object with key & value pair: `movies: state.movies`
+
+   mapStateToProps is passed as a 1st argument to the connect() function at the end.
+
+
+    <b>Above is how we use the React-Redux library to get data from the Redux store into a component.</b>  Import connect, call connec,  pass in our component (here MoviesList) as the 2nd function call;  define mapStateToProps, which always has 1st arg of state and return an object that will show up as props inside our component.
+
+6. Now, inside MovieList, map over our data and retunr jsx.
