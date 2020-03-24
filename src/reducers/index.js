@@ -1,3 +1,5 @@
+import { combineReducers } from 'redux';
+
 // moviesReducer is  a static list of movies and won't be changed.
 const moviesReducer = () => {
   return [
@@ -22,3 +24,8 @@ const selectedMovieReducer = (selectedMovie = null, action) => {
   // default: return currently selected movie
   return selectedMovie;
 };
+
+export default combineReducers({
+  movies: moviesReducer,
+  selectedMovie: selectedMovieReducer
+});

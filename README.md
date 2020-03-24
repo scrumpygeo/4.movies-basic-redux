@@ -19,3 +19,14 @@
 
 1. create action creator 'selectMovie', which returns a payload.
 2. create the reducers - only 2 needed: moviesReducer and selectedMovieReducer.
+3. in reducers file, connect the Provider:
+   - use combineReducers function to comine reducers into an object:
+     keys used are keys that show up inside state object. So below, movies and selectedMovie are keys to the state object we use in the app. Any file in the project can now get access to out combined set of reducers:
+
+```
+        export default combineReducers({
+        movies: moviesReducer,
+        selectedMovie: selectedMovieReducer
+        });
+
+```
