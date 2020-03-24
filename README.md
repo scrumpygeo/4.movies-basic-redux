@@ -67,6 +67,29 @@ At this point, Redux action creators and reducers are finished. Rest of the deve
    mapStateToProps is passed as a 1st argument to the connect() function at the end.
 
 
-    <b>Above is how we use the React-Redux library to get data from the Redux store into a component.</b>  Import connect, call connec,  pass in our component (here MoviesList) as the 2nd function call;  define mapStateToProps, which always has 1st arg of state and return an object that will show up as props inside our component.
+    <b>Above is how we use the React-Redux library to get data from the Redux store into a component.</b>  Import connect, call connect,  pass in our component (here MoviesList) as the 2nd function call;  define mapStateToProps, which always has 1st arg of state and return an object that will show up as props inside our component.
 
-6. Now, inside MovieList, map over our data and retunr jsx.
+6. Now, inside MovieList, map over our data and return jsx. Using bootstrap for styling.
+
+7. Selecting a movie:
+
+   i. import our action creatorx`
+   ii. wire it up to the connect component by passing it into the connect function as a 2nd argument, after the mapStateToProps, as { selectMovie: selectMovie}, ie key is selectMovie, value, the action creator, is selectMovie. (so you could shorten it to {selectMovie } as they're the same word - ES2015)
+
+   iii. now, connect function will take the selectMovie action creator and pass it into our MovieList component as a prop. (if u console.log(this.props) in render method u have 2 main objects: the movies list and the selectMovie function, which is our action creator.)
+
+   iv. now call the action creator by attaching it to onClick on our button in the list. To test, we can look at state by console.logging in mapStatetoProps to see the current state value.
+
+   Every time we click on the select button mapStateToProps should re-run and have the new state values.
+
+   (NB behind the scenes the connect function calls dispatch method in Redux)
+
+8) MovieDetail component.
+
+   - this needs to know some of the info in the store, so we need to wrap it with the connect component too.
+   - since it won't have any functionality that will change state, we don't need to wire up any action creators to it. It can also be a functional component.
+   - if u lookat MovieList's combineReducers you can remind yourself what the keys in the state object are: movies and selectedMovie. So we want state.selectedMovie.
+   - so in mapStateToProps we can return an object with key we will call movie & with value of state.selectedMovie.
+   - down in export default, we can use connect: connect(mapStateToProps)(MovieDetail)
+   - further up in the function definition for MovieDetail, we can now pass in the param of props (which will contain our object with key of movie)
+   - import MovieDetail into App. NB no passing of props into the component because App is no longer in charge of data: redux passes in the data directly to the components at component level.

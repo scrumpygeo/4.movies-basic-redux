@@ -9,7 +9,9 @@ import reducers from './reducers';
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={createStore(reducers)}>
-      <App />
+      <div className='container mt-2'>
+        <App />
+      </div>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

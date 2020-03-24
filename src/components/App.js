@@ -1,11 +1,17 @@
 import React from 'react';
 import MovieList from './MovieList';
+import MovieDetail from './MovieDetail';
 import './App.css';
 
 const App = () => {
   return (
-    <div>
-      <MovieList />
+    <div className='row'>
+      <div className='col-6'>
+        <MovieList />
+      </div>
+      <div className='col-6'>
+        <MovieDetail />
+      </div>
     </div>
   );
 };
