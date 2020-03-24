@@ -15,7 +15,7 @@
         - a moviesReducer function to hold list of movies - acting as database in this eg;
         - also have a selectedMovieReducer function to hold our selected movie
     - action creator:
-        - a function called selectMovie
+        - a function called selectMovie. Only 1 for this simple eg.
 
 1. create action creator 'selectMovie', which returns a payload.
-2. create the reducers - only 2 needed.
+2. create the reducers - only 2 needed: moviesReducer and selectedMovieReducer.
