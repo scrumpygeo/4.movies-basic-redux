@@ -93,3 +93,7 @@ At this point, Redux action creators and reducers are finished. Rest of the deve
    - down in export default, we can use connect: connect(mapStateToProps)(MovieDetail)
    - further up in the function definition for MovieDetail, we can now pass in the param of props (which will contain our object with key of movie)
    - import MovieDetail into App. NB no passing of props into the component because App is no longer in charge of data: redux passes in the data directly to the components at component level.
+
+> ---
+
+<img src="react-redux.png" />
