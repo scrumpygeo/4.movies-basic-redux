@@ -15,4 +15,4 @@
     - action creator:
         - a function called selectMovie
 
-1. create action creator 'selectMovie'.
+1. create action creator 'selectMovie', which returns a payload.

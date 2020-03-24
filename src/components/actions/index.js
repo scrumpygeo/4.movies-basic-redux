@@ -1,4 +1,7 @@
 // Action Creator - will return an action
-const selectMovie = () => {
-  return {};
+export const selectMovie = movie => {
+  return {
+    type: 'MOVIE_SELECTED',
+    payload: movie
+  };
 };
