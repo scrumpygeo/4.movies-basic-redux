@@ -6,6 +6,8 @@
 
     With Redux you don't use app level state so much, so App.js doesn't have to be a class-based component: function-based is ok.
 
+    NB: npm install --save redux and react-redux
+
 **Project Structure**
 
     - put components, actions and reducers in their own folders within /src.
@@ -30,3 +32,16 @@
         });
 
 ```
+
+At this point, Redux action creators and reducers are finished. Rest of the development is React-Redux.
+
+4. Now add some config in src/index.js file so we have Provider tag wrapping our App, as well as passing a reference to our redux store.
+
+   - do appropriate imports:
+
+     - import { Provider } from 'react-redux';
+     - import { createStore } from 'redux';
+     - import { reducers } from './reducers';
+
+   - then wrap App tag in `<Provider > </Provider>` tags
+   - pass Provider a reference to the result of passing reducers to createStore function, ie `<Provider store={createStor(reducers)} >`
